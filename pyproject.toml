@@ -113,6 +113,7 @@ python_files = "test*.py"
 norecursedirs = [".git", "_build", "tmp", ".eggs"]
 
 [tool.cibuildwheel]
+skip = ["*-win32", "*-manylinux_i686", "*-musllinux_i686"]
 manylinux-x86_64-image = "manylinux2014"
 manylinux-i686-image = "manylinux2014"
 manylinux-aarch64-image = "manylinux2014"
@@ -121,10 +122,10 @@ manylinux-s390x-image = "manylinux2014"
 manylinux-pypy_x86_64-image = "manylinux2014"
 manylinux-pypy_aarch64-image = "manylinux2014"
 
-musllinux-x86_64-image = "musllinux_1_1"
-musllinux-aarch64-image = "musllinux_1_1"
-musllinux-ppc64le-image = "musllinux_1_1"
-musllinux-s390x-image = "musllinux_1_1"
+musllinux-x86_64-image = "musllinux_1_2"
+musllinux-aarch64-image = "musllinux_1_2"
+musllinux-ppc64le-image = "musllinux_1_2"
+musllinux-s390x-image = "musllinux_1_2"
 
 [tool.cibuildwheel.linux]
 archs = ["auto64", "aarch64"]
@@ -135,7 +136,7 @@ archs = ["x86_64", "universal2", "arm64"]
 [tool.tox]
 legacy_tox_ini = """
 [tox]
-envlist = check, py{39,310,311,312,313}, pypy39, docs
+envlist = check, py{39,310,311,312,313,314}, pypy39, docs
 
 [testenv]
 passenv =
